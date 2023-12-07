@@ -1,0 +1,31 @@
+/* General styles and table alignment */
+.table tr:nth-child(odd) {
+  background: #fff3cd; /* Light yellow for contrast */
+}
+.table tr:nth-child(even) {
+  background: #f8f9fa; /* Very light gray */
+}
+th {
+  background-color: #ffc107; /* Bug-themed amber color */
+  color: white;
+}
+
+/* Success message style */
+.success {
+    list-style: none;
+    background-color: #28a745; /* Bootstrap success green */
+    color: white;
+    text-align: center;
+}
+
+/* Navbar customization */
+.navbar-custom {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: #fff;
+}
+
+/* Jumbotron
