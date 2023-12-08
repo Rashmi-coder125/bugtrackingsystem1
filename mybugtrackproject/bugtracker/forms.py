@@ -1,5 +1,8 @@
 from django import forms
 from .models import Bug
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 class BugUpdateForm(forms.ModelForm):
     class Meta:
@@ -8,7 +11,7 @@ class BugUpdateForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control'}, choices=[('Open', 'Open'), ('InProgress', 'InProgress'), ('Closed', 'Closed')]),
             'project': forms.TextInput(attrs={'class': 'form-control'}),
             'priority': forms.Select(attrs={'class': 'form-control'}, choices=[('Low', 'Low'), ('Medium', 'Medium'), ('High', 'High')]),
         }

@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import BugUpdateForm, SignUpForm
-from .models import Bug
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from .models import Bug
 
 
 LOGIN_REDIRECT_URL = '/login'
@@ -44,33 +43,37 @@ def login_view(request):
 
 @login_required(login_url='/login/')
 def home(request):
-    title = 'Welcome....!!!'
+    title = 'Welcome to Bug Tracker'
     context = {"title": title}
     return render(request, "home.html", context)
-    
+
 
 @login_required(login_url='/login/')
 def list_bugs(request):
     title = 'List of Bugs'
     queryset = Bug.objects.filter(reported_by=request.user)  # Show bugs reported by logged-in user
     context = {"title": title, "queryset": queryset}
-    return render(request, "list_bugs.html", context)  # Update with your template name
+    return render(request, "list_bugs.html", context)
+
 
 @login_required(login_url='/login/')
 def add_bug(request):
     if request.method == 'POST':
         form = BugUpdateForm(request.POST)
+        print("post")
         if form.is_valid():
+            print("post valid")
             bug = form.save(commit=False)
             bug.reported_by = request.user  # Associate bug with logged-in user
             bug.save()
             messages.success(request, 'Bug successfully reported')
-            return redirect('/list_bugs')
+            return redirect('list_bugs')
     else:
         form = BugUpdateForm()
 
     context = {"form": form, "title": "Report a Bug"}
-    return render(request, "add_bug.html", context)  # Update with your template name
+    return render(request, "add_bug.html", context)
+
 
 @login_required(login_url='/login/')
 def update_bug(request, pk):
@@ -80,7 +83,7 @@ def update_bug(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Bug successfully updated')
-            return redirect('/list_bugs')
+            return redirect('/bugs/list/')
     else:
         form = BugUpdateForm(instance=queryset)
 
