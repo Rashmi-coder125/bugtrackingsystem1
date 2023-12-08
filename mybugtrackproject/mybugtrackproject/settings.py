@@ -75,13 +75,24 @@ WSGI_APPLICATION = 'mybugtrackproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(Path(BASE_DIR) / 'db.sqlite3'),
     }
-}
+}'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bugtrack',
+        'USER': 'admin',
+        'PASSWORD': 'Admin123',
+        'HOST': 'x22208038-cdos.chwlezgyi7rm.eu-west-1.rds.amazonaws.com',
+        'PORT': '3306',
+       
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
