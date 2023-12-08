@@ -7,9 +7,6 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from .models import Bug
 
-
-LOGIN_REDIRECT_URL = '/login'
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -33,7 +30,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return redirect('home')  # Replace 'home' with the name of the view you want to redirect to
+            return redirect('/')  # Replace 'home' with the name of the view you want to redirect to
         else:
             # Return an 'invalid login' error message.
             messages.error(request, "Invalid username or password.")
@@ -97,7 +94,7 @@ def delete_bug(request, pk):
         bug_title = queryset.title  # Get the title of the bug
         queryset.delete()
         messages.success(request, f'Successfully deleted "{bug_title}"')
-        return redirect('/list_bugs')
+        return redirect('/bugs/list/')
 
     context = {"title": "Are you sure you want to delete this bug?", "bug_title": queryset.title}
     return render(request, 'delete_bug.html', context)  # Update with your template name
