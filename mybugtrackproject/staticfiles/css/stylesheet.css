@@ -1,0 +1,113 @@
+/* General styles and table alignment */
+.table tr:nth-child(odd) {
+  background: #fff3cd; /* Light yellow for contrast */
+}
+.table tr:nth-child(even) {
+  background: #f8f9fa; /* Very light gray */
+}
+th {
+  background-color: #ffc107; /* Bug-themed amber color */
+  color: white;
+}
+
+/* Success message style */
+.success {
+    list-style: none;
+    background-color: #28a745; /* Bootstrap success green */
+    color: white;
+    text-align: center;
+}
+
+/* Navbar customization */
+.navbar-custom {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: #fff;
+}
+
+/* Jumbotron for welcome messages */
+.jumbotron {
+    background-color: #e9ecef; /* Light gray background */
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.jumbotron h1 {
+    color: #007bff; /* Bootstrap primary blue */
+}
+
+/* Form Styles */
+form {
+    margin-top: 1rem;
+}
+
+input[type="submit"], .btn-custom {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, .btn-custom:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+/* Responsive image and typography */
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+@media (min-width: 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+ 
+
+/* Form container styling */
+.form-container {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #dee2e6; /* Soft border */
+}
+
+/* Authentication forms styling */
+.auth-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.auth-header {
+  color: #007bff; /* Bootstrap primary blue */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form input styling */
+.auth-form input[type="text"],
+.auth-form input[type="password"],
+.auth-form input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Fixed top margin for body */
+body {
+	min-height: 75rem;
+	padding-top: 56px;
+}
