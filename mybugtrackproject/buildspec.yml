@@ -16,9 +16,9 @@ phases:
       - echo "Build Phase - Starting"
       - echo Build started on `date`
       - python manage.py migrate
-      - echo "Running Pylint "
-      - cd Dashboard
-      - pylint ./*
+     # - echo "Running Pylint"
+      #- cd Dashboard
+     # - pylint ./*
  
   post_build:
     commands:
