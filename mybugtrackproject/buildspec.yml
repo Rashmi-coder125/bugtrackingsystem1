@@ -6,23 +6,23 @@ phases:
       python: 3.11
     commands:
       # Install dependencies needed
-      - echo "Starting Pre-Build Phase..."
+      - echo "Pre-Build Phase - Starting....."
       - pip install --upgrade pip
-      - echo "Installing dependencies from requirements.txt..."
+      - echo "Dependencies installation from requirements.txt file"
       - pip install -r requirements.txt
  
   build:
     commands:
-      - echo "Starting Build Phase..."
+      - echo "Build Phase - Starting"
       - echo Build started on `date`
       - python manage.py migrate
-      - echo "Running Pylint..."
+      - echo "Running Pylint "
       - cd Dashboard
       - pylint ./*
  
   post_build:
     commands:
-      - echo "Starting Post-Build Phase..."
+      - echo "Post-Build Phase - Starting"
       - echo Build completed on `date`
  
 artifacts:
